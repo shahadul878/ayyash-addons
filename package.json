@@ -1,0 +1,64 @@
+{
+  "name": "ayyash-addons",
+  "version": "1.0.0",
+  "description": "A wordpress helper plugin for ayyash theme.",
+  "scripts": {
+    "prod": "webpack --env NODE_ENV=production --env production",
+    "prod:watch": "webpack --env NODE_ENV=production --env production --watch",
+    "dev": "webpack --env NODE_ENV=development",
+    "dev:watch": "webpack --env NODE_ENV=development --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahadul878/ayyash-addons.git"
+  },
+  "keywords": [
+    "elementor",
+    "gutenber"
+  ],
+  "author": "Themeoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shahadul878/ayyash-addons/issues"
+  },
+  "homepage": "https://github.com/shahadul878/ayyash-addons#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.0",
+    "browser-sync": "^2.26.13",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.14",
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^8.1.0",
+    "image-minimizer-webpack-plugin": "^2.2.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^8.0.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.3",
+    "node-sass-magic-importer": "^5.3.2",
+    "pixrem": "^5.0.0",
+    "postcss-import": "^15.0.0",
+    "postcss-loader": "^7.0.1",
+    "postcss": "^8.2.4",
+    "postcss-advanced-variables": "^3.0.1",
+    "postcss-import-ext-glob": "^2.0.0",
+    "postcss-nested": "^5.0.3",
+    "postcss-nested-ancestors": "^2.0.0",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.1.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-fix-style-only-entries": "^0.6.1",
+    "webpackbar": "^5.0.2"
+  }
+}
