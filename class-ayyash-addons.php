@@ -120,7 +120,7 @@ if ( ! class_exists( 'Ayyash_Addons' ) ) {
 
 			$author = wp_get_theme()->get( 'Author' );
 			if ( in_array( $author, [ 'ThemeRox', 'Themerox', 'themerox', 'ThemeOO', 'Themeoo', 'themeoo' ] ) ) {
-				include_once AYYASH_ADDONS_PATH . '/includes';
+				include_once AYYASH_ADDONS_PATH . '/includes/helper.php';
 			} else {
 				add_action( 'admin_notices', array( $this, 'admin_notice_error' ) );
 			}
@@ -149,12 +149,12 @@ if ( ! class_exists( 'Ayyash_Addons' ) ) {
 			/**
 			 * All styles goes here
 			 */
-			// wp_enqueue_style( 'ayyash-pro-style', plugins_url( 'assets/css/frontend.css', __FILE__ ), $this->version, date( 'Ymd' ) );
+			wp_enqueue_style( 'ayyash-addons-style', AYYASH_ADDONS_PATH . 'assets/css/frontend.css', [], $this->version, date( 'Ymd' ) );
 
 			/**
 			 * All scripts goes here
 			 */
-			// wp_enqueue_script( 'ayyash-pro-scripts', plugins_url( 'assets/js/frontend.js', __FILE__ ), array( 'jquery' ), $this->version, true );
+			wp_enqueue_script( 'ayyash-addons-scripts', AYYASH_ADDONS_PATH . 'assets/js/frontend.js', [ 'jquery' ], $this->version, true );
 		}
 
 		/**
