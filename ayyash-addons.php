@@ -79,8 +79,58 @@ if ( ! defined( 'AYYASH_ADDONS_URL' ) ) {
 	define( 'AYYASH_ADDONS_URL', plugin_dir_url( AYYASH_ADDONS_FILE ) );
 }
 
+// Define INT_MIN & INT_MIN for php 5.6 BackCompact.
+if ( ! defined( 'AYYASH_ADDONS_INT_MIN' ) ) {
+	define( 'AYYASH_ADDONS_INT_MIN', defined( 'PHP_INT_MIN' ) ? PHP_INT_MIN : - 999999 ); // phpcs:ignore PHPCompatibility.Constants.NewConstants.php_int_minFound
+}
+if ( ! defined( 'AYYASH_ADDONS_INT_MAX' ) ) {
+	define( 'AYYASH_ADDONS_INT_MAX', defined( 'PHP_INT_MAX' ) ? PHP_INT_MAX : 999999 ); // phpcs:ignore PHPCompatibility.Constants.NewConstants.php_int_maxFound
+}
+
+
+if ( ! defined( 'AYYASH_ADDONS_ELEMENTOR_PATH' ) ) {
+	/**
+	 * AYYASH ADDONS ELEMENTOR PATH.
+	 *
+	 * @var string
+	 */
+	define( 'AYYASH_ADDONS_ELEMENTOR_PATH', AYYASH_ADDONS_PATH . 'elementor/' );
+}
+
+if ( ! defined( 'AYYASH_ADDONS_ELEMENTOR_FILE' ) ) {
+	/**
+	 * AYYASH ADDONS ELEMENTOR FILE.
+	 *
+	 * @var string
+	 */
+	define( 'AYYASH_ADDONS_ELEMENTOR_FILE', __FILE__ );
+}
+
+if ( ! defined( 'AYYASH_ADDONS_ELEMENTOR_WIDGETS_PATH' ) ) {
+	/** @define "AYYASH_ADDONS_ELEMENTOR_WIDGETS_PATH" "./widgets/" */
+	/**
+	 * Widgets Dir Ref.
+	 *
+	 * @var string
+	 */
+	define( 'AYYASH_ADDONS_ELEMENTOR_WIDGETS_PATH', AYYASH_ADDONS_ELEMENTOR_PATH . 'widgets/' );
+}
+
 if ( ! class_exists( 'Ayyash_Addons', false ) ) {
 	require_once AYYASH_ADDONS_PATH . 'class-ayyash-addons.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+}
+
+if ( ! class_exists( 'Ayyash_Elementor_Addons', false ) ) {
+	require_once AYYASH_ADDONS_ELEMENTOR_PATH . 'ayyash-elementor-addons.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+	/**
+	 * Instantiate Absolute_Addons.
+	 * @return AyyashAddons\Ayyash_Elementor_Addons
+	 */
+	function ayyash_elementor_addons() {
+		return AyyashAddons\Ayyash_Elementor_Addons::instance();
+	}
+
+	ayyash_elementor_addons();
 }
 
 /**
@@ -93,5 +143,6 @@ function ayyash_addons() {
 }
 
 // Kick it off.
+
 ayyash_addons();
 // End of file ayyash-addons.php.
