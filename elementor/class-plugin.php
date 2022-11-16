@@ -220,7 +220,7 @@ class Plugin {
 		//@TODO Use appropriate version for 3rd-party assets.
 		$scripts = [
 			'swiper-slider' => [
-				'src'     => '/assets/dist/js/libraries/swiper-bundle',
+				'src'     => AYYASH_ADDONS_PATH . '/assets/dist/js/libraries/swiper-bundle',
 				'deps'    => [ 'jquery' ],
 				'version' => AYYASH_ADDONS_VERSION,
 			],
@@ -258,7 +258,7 @@ class Plugin {
 		];
 
 		foreach ( $widget_scripts as $script ) {
-			self::register_script( 'ayyash-addons-' . $script, '/assets/dist/js/widgets/' . $script, [ 'ayyash-addons-core' ] );
+			self::register_script( 'ayyash-addons-' . $script, '/../assets/dist/js/widgets/' . $script, [ 'ayyash-addons-core' ] );
 		}
 	}
 
@@ -286,12 +286,11 @@ class Plugin {
 			self::register_style( $name, $props['src'], $props['deps'], $props['version'], 'all', $props['has_rtl'] );
 		}
 
-		self::enqueue_style( 'ayyash-addons-core' );
-		self::enqueue_style( 'ayyash-addons-btn' );
-		self::enqueue_style( 'absolute-icons' );
+		//self::enqueue_style( 'ayyash-addons-core' );
+
 
 		$widget_styles = [
-			'blog-post',
+			'button',
 		];
 
 		foreach ( $widget_styles as $style ) {
