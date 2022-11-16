@@ -318,8 +318,6 @@ class Plugin {
 
 	public static function editor_scripts() {
 
-		self::enqueue_style( 'absolute-icons', 'assets/dist/css/libraries/absp-icons/css/absolute-icons.css', [], AYYASH_ADDONS_VERSION, 'all', true );
-
 		self::enqueue_style( 'ayyash-addons-editor', 'assets/dist/css/editor.css', [], AYYASH_ADDONS_VERSION, 'all', true );
 
 		self::enqueue_script( 'ayyash-addons-editor', 'assets/dist/js/editor.js', [ 'elementor-editor' ] );
