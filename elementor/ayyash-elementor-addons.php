@@ -274,15 +274,23 @@ final class Ayyash_Elementor_Addons {
 	 * @since 1.0.0
 	 * @access public
 	 */
-	public function add_widget_categories( $elements_manager ) {
+	public function add_widget_categories( Elements_Manager $elements_manager ) {
 
-		$elements_manager->add_category(
-			'ayyash-widgets',
+		$categories                   = [];
+		$categories['ayyash-widgets'] =
 			[
-				'title' => esc_html__( 'Ayyash Addons', 'ayyash-addons' ),
+				'title' => 'Ayyash Addons',
 				'icon'  => 'fa fa-plug',
-			]
-		);
+			];
+
+		$old_categories = $elements_manager->get_categories();
+		$categories     = array_merge( $categories, $old_categories );
+
+		$set_categories = function ( $categories ) {
+			$this->categories = $categories;
+		};
+
+		$set_categories->call( $elements_manager, $categories );
 	}
 }
 
